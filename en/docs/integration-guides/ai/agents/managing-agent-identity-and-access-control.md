@@ -3,7 +3,7 @@ title: "Managing Agent Identity and Access Control"
 description: "Learn how to configure secure identity and access control for AI agents."
 ---
 
-# Managing Agent Identity and Access Control
+# Managing agent identity and access control
 
 AI agents interact with MCP servers, APIs, and enterprise systems to perform tasks. To ensure secure and governed interactions, it is important to manage **agent identity**, **authentication**, and **authorization**.
 
@@ -45,7 +45,7 @@ Before you start, ensure you have an [Asgardeo account](https://wso2.com/asgarde
 
 After successful registration, your agent will receive a unique Agent ID and an Agent Secret, which is shown only once. Make sure to store them securely, as you’ll need them later in this guide.
 
-### Configure Resources
+### Configure resources
 
 1. In the Asgardeo console, navigate to **Resources** and select **MCP Servers** (for MCP-based integrations), or **API Resources** (for non-MCP services).
 
@@ -65,11 +65,11 @@ After successful registration, your agent will receive a unique Agent ID and an 
 
 6. Click **Next**, then click **Create**.
 
-### Register an Application
+### Register an application
 
-To allow your agent to execute secure tool, client needs to be set up in Asgardeo.
+To allow your agent to execute secure tools, you need to register applications in Asgardeo. The MCP toolkit requires registering an MCP client application, while Non-MCP tools require registering a standard-based application.
 
-#### Configure MCP Tool
+#### Configure MCP application
 
 1. In the Asgardeo console, navigate to **Applications** > **New Application**.
 
@@ -80,7 +80,7 @@ To allow your agent to execute secure tool, client needs to be set up in Asgarde
 
 3. Go to the **Advanced** tab and click **Enable app-native authentication API**.
 
-#### Configure Non-MCP Tool
+#### Configure Non-MCP application
 
 To allow your agent to authenticate and execute the Non-MCP tool.
 
@@ -115,7 +115,7 @@ To allow your agent to authenticate and execute the Non-MCP tool.
 
 3. Click **Finish**
 
-### Configure Role
+### Configure role
 
 1. In the Asgardeo console, navigate to **User Management** > **Roles**.
 
@@ -134,14 +134,16 @@ To allow your agent to authenticate and execute the Non-MCP tool.
 
 7. Select the created agent and assign the role.
 
-## Step 1: Create the Integration
+You can now proceed to set up your integration.
+
+## Step 1: Create the integration
 
 Create the integration by following the appropriate guide:
 
    - For MCP: [Integrating Agents with MCP Servers](/integration-guides/ai/agents/integrating-agents-with-mcp-servers/)
    - For non-MCP: [Introduction to Chat Agents](/integration-guides/ai/agents/introduction-to-chat-agents/)
 
-## Step 2: Add Agent Credential
+## Step 2: Add agent credential
 
 1. After creating your project, click on **AI Service**.
 
@@ -161,9 +163,9 @@ Create the integration by following the appropriate guide:
       <img src="{{base_path}}/assets/img/integration-guides/ai/agents/managing-agent-identity-and-access-control/agent_advanced_config.png" alt="agent creation form" width="50%">
      </a>
 
-## Step 3: Update tool auth configuration and scope
+## Step 3: Update the authentication configuration and the scopes of the tool
 
-### For MCP Tool
+### Configure MCP tool
 
 1. Click on the **MCP Toolkit** to open the configuration form.
 
@@ -188,9 +190,10 @@ Create the integration by following the appropriate guide:
         The callback URL where the authorization server redirects after successful authentication. This must match the URL configured in the application.
 
      - **isPkceEnabled**  
-         Indicates whether **PKCE (Proof Key for Code Exchange)** is enabled:
-             - `true` → Recommended for public clients (more secure)
-             - `false` → Used with client secret (confidential clients)
+        Indicates whether **PKCE (Proof Key for Code Exchange)** is enabled:
+
+          - **true**: Recommended for public clients (more secure); set this to `true` if PKCE is enabled in the Asgardeo application
+          - **false**: Used with client secret (confidential clients)
 
      - **scopes**  
          A list of permissions requested by the agent. These define what resources the agent can access.  
@@ -207,11 +210,11 @@ Create the integration by following the appropriate guide:
        <img src="{{base_path}}/assets/img/integration-guides/ai/agents/managing-agent-identity-and-access-control/add_tool_scope.png" alt="Add tool scope" width="70%">
      </a>
 
-###  For Non-MCP Tool
+### Configure Non-MCP tool
 
 1. Click on the **3-dot menu** and then click **Edit**.  
       <a href="{{base_path}}/assets/img/integration-guides/ai/agents/managing-agent-identity-and-access-control/tool_scope.png">
-       <img src="{{base_path}}/assets/img/integration-guides/ai/agents/managing-agent-identity-and-access-control/tool_scope.png" alt="Add tool scope" width="70%">
+        <img src="{{base_path}}/assets/img/integration-guides/ai/agents/managing-agent-identity-and-access-control/tool_scope.png" alt="Add tool scope" width="70%">
       </a>
 
 2. Go to the **Advanced Configuration** and click **Expand**.
@@ -229,10 +232,7 @@ To start chatting with the agent:
 1. Click the **Chat** button located at the top-left corner of the interface.
 2. You will be prompted to run the integration. Click **Run Integration**.
 3. Start chatting with your assistant.
-   <a href="{{base_path}}/assets/img/integration-guides/ai/agents/managing-agent-identity-and-access-control/run_integration.png">
+
+    <a href="{{base_path}}/assets/img/integration-guides/ai/agents/managing-agent-identity-and-access-control/run_integration.png">
       <img src="{{base_path}}/assets/img/integration-guides/ai/agents/managing-agent-identity-and-access-control/run_integration.png" alt="Run integration" width="70%">
-   </a>
- 
-
-
-
+    </a>
